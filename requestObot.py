@@ -39,6 +39,18 @@ async def reqitem(ctx, *, search):
                 
                 await ctx.send("No request under that name, to create a new request type .req (item)")
 
+@bot.command()
+async def refill(ctx, test: str):    
+        with open('req.txt','a') as f:
+           f.write(f'\n{req}')
+        await ctx.send("You added {} ".format(req))
+
+        
+@bot.command()
+async def reqfile(ctx):
+    await ctx.send(file=discord.File('req.txt'))
+
+
 
 @bot.event
 async def on_ready():
